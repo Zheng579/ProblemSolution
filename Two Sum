@@ -1,0 +1,35 @@
+using System;
+
+namespace MyApplication
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+        int[] myNum = {10, 20, 30, 40};
+        var answer = Solution.TwoSum(myNum, 30);
+        Console.WriteLine(string.Join(", ", answer));
+    }
+  }
+
+  //start here ==> if exactly one solution
+  public class Solution {
+        public static int[] TwoSum(int[] nums, int target) {
+            int[] ans = {0, 0};
+            for(var i = 0; nums.Length > i; i++){
+                for(var j = 0; nums.Length > j; j++){
+                    //selected value cannot be used again
+                    if(i != j){
+                        //get the result
+                        if((nums[i] + nums[j]) == target){
+                            ans[0] = i;
+                            ans[1] = j;
+                        }
+                    }
+                }
+            }
+            //should return the index rather than the value
+            return ans;
+        }
+    }
+}
